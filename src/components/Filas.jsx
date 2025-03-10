@@ -1,57 +1,58 @@
 import Swal from "sweetalert2";
-import convertirAPesos from "../utils/convertirAPesos"
 import { Link, useNavigate } from "react-router"
 
-const Fila = ({ producto, borrarProducto, setProductoAEditar }) => { // Se recibe el producto, la función borrarProducto y la función setProductoAEditar
+const Fila = ({ usuario, borrarUsuario, setUsuarioAEditar }) => { // Se recibe el producto, la función borrarProducto y la función setProductoAEditar
 
     const navigate = useNavigate() // Se inicializa el hook useNavigate
 
     const handleEliminar = (id) => {
         Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
+            title: "¿Estás seguro?",
+            text: "¡No serás capaz de revertir la acción!",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "si, ¡Eliminalo!"
         }).then((result) => {
             if (result.isConfirmed) {
+                borrarUsuario(id)
                 Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
+                    title: "¡Eliminado!",
+                    text: "El usuario ha sido eliminado.",
                     icon: "success"
                 });
             }
         });
     }
 
-    const handleEditar = (producto) => {
-        setProductoAEditar(producto)
+    const handleEditar = (usuario) => {
+        setUsuarioAEditar(usuario)
     }
 
     const handleVer = (id) => {
-        navigate(`/productos/detalle/${id}`)
+        navigate(`/usuarios/detalle/${id}`)
     }
 
     return (
         <tr className="bg-white border-b border-gray-200">
-            <td className="px-6 py-4">{producto.nombre}</td>
-            <td className="px-6 py-4">{producto.categoria}</td>
-            <td className="px-6 py-4">{convertirAPesos(producto.precio)}</td>
+            <td className="px-6 py-4">{usuario.nombre}</td>
+            <td className="px-6 py-4">{usuario.apellido}</td>
+            <td className="px-6 py-4">{usuario.edad}</td>
+            <td className="px-6 py-4">{usuario.puesto}</td>
             <td className="px-6 py-4">
                 <button
-                onClick={() => handleVer(producto.id)}
+                onClick={() => handleVer(usuario.id)}
                 className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 cursor-pointer mr-2">
                     Ver
                 </button>
                 <button
-                onClick={() => handleEditar(producto)}
+                onClick={() => handleEditar(usuario)}
                 className="px-4 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 cursor-pointer mr-2">
                     Editar
                 </button>
                 <button
-                onClick={() => handleEliminar(producto.id)}
+                onClick={() => handleEliminar(usuario.id)}
                 className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 cursor-pointer mr-2">
                     Borrar
                 </button>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const Formulario = ({ agregarProducto, productoAEditar, setProductoAEditar, editarProducto }) => {
+const Formulario = ({ agregarUsuario, usuarioAEditar, setUsuarioAEditar, editarUsuario }) => {
     const dataFormularioInicial ={
         id: null,
         nombre: '',
@@ -12,8 +12,8 @@ const Formulario = ({ agregarProducto, productoAEditar, setProductoAEditar, edit
     const [dataFormulario, setDataFormulario] = useState(dataFormularioInicial)
 
     useEffect(() => {
-        productoAEditar ? setDataFormulario(productoAEditar) : setDataFormulario(dataFormularioInicial)
-    }, [productoAEditar])
+        usuarioAEditar ? setDataFormulario(usuarioAEditar) : setDataFormulario(dataFormularioInicial)
+    }, [usuarioAEditar])
 
     const handleChange = (e) => {
         const dataActualizada = {
@@ -28,9 +28,9 @@ const Formulario = ({ agregarProducto, productoAEditar, setProductoAEditar, edit
         e.preventDefault()
 
         if ( dataFormulario.id === null ) {
-            agregarProducto(dataFormulario)
+            agregarUsuario(dataFormulario)
         } else {
-            editarProducto(dataFormulario)
+            editarUsuario(dataFormulario)
         }
 
         handleReset()
@@ -38,13 +38,13 @@ const Formulario = ({ agregarProducto, productoAEditar, setProductoAEditar, edit
 
     const handleReset = () => {
         setDataFormulario(dataFormularioInicial)
-        setProductoAEditar(null) 
+        setUsuarioAEditar(null) 
     }
 
     return (
         <>
         <h2 className="text-2xl font-semibold my-4">
-            Formulario de { productoAEditar ? 'edicion' : 'carga' } de productos
+            Formulario de { usuarioAEditar ? 'edicion' : 'carga' } de usuarios
         </h2>
 
         <div className="max-w-lg mb-4">
@@ -61,37 +61,49 @@ const Formulario = ({ agregarProducto, productoAEditar, setProductoAEditar, edit
                 onChange={handleChange}
                 value={dataFormulario.nombre}
                 />
-                <label htmlFor="lbl-categoria" className="block text-sm font-medium text-gray-700">
-                    Categoria
+                <label htmlFor="lbl-apellido" className="block text-sm font-medium text-gray-700">
+                    Apellido
                 </label>
                 <input 
                 type="text"
-                id="lbl-categoria" 
-                placeholder="Ingresa la categoria" 
+                id="lbl-apellido" 
+                placeholder="Ingresa el apellido" 
                 className="w-full p-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                name="categoria"
+                name="apellido"
                 onChange={handleChange}
-                value={dataFormulario.categoria}
+                value={dataFormulario.apellido}
                 />
-                <label htmlFor="lbl-precio" className="block text-sm font-medium text-gray-700">
-                    Precio
+                <label htmlFor="lbl-edad" className="block text-sm font-medium text-gray-700">
+                    Edad
+                </label>
+                <input 
+                type="number"
+                id="lbl-edad"
+                placeholder="Ingresa la edad"
+                className="w-full p-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                name="edad"
+                onChange={handleChange}
+                value={dataFormulario.edad}
+                />
+                <label htmlFor="lbl-puesto" className="block text-sm font-medium text-gray-700">
+                    Puesto
                 </label>
                 <input 
                 type="text"
-                id="lbl-precio"
-                placeholder="Ingresa el precio"
+                id="lbl-puesto"
+                placeholder="Ingresa el puesto"
                 className="w-full p-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                name="precio"
+                name="puesto"
                 onChange={handleChange}
-                value={dataFormulario.precio}
+                value={dataFormulario.puesto}
                 />
 
                 <div className="flex justify-between">
                     <button
                     type="submit"
-                    className={`px-4 py-2 ${ productoAEditar ? 'bg-yellow-500' : 'bg-green-500' } text-white rounded-lg ${productoAEditar ? 'hover:bg-yellow-700' : 'hover:bg-green-700'} cursor-pointer`}
+                    className={`px-4 py-2 ${ usuarioAEditar ? 'bg-yellow-500' : 'bg-green-500' } text-white rounded-lg ${usuarioAEditar ? 'hover:bg-yellow-700' : 'hover:bg-green-700'} cursor-pointer`}
                     >
-                        { productoAEditar ? 'Editar' : 'crear' }
+                        { usuarioAEditar ? 'Editar' : 'crear' }
                     </button>
                     <button
                     type="reset"
