@@ -1,5 +1,6 @@
 import React from 'react'
-import useTitulo from "../hooks/UseTitulo"
+import useTitulo from "../hooks/useTitulo"
+import App from '../App'
 
 const Usuarios = () => {
 

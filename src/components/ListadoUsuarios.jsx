@@ -1,4 +1,4 @@
-import Fila from "./Fila";
+import Filas from "./Filas";
 import Spinner from "./Spinner";
 
 const ListadoUsuarios = ({
@@ -22,10 +22,10 @@ const ListadoUsuarios = ({
                 <tbody>
                     {
                         usuarios.map((usuario) => (
-                            <Fila 
+                            <Filas 
                             usuario={usuario}
                             key={usuario.id}
-                            borrarUsuarios={borrarUsuario}
+                            borrarUsuario={borrarUsuario}
                             setUsuarioAEditar={setUsuarioAEditar}
                             />
                         ))

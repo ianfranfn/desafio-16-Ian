@@ -6,7 +6,7 @@ import ListadoUsuarios from "./components/ListadoUsuarios"
 const App = () => {
 
   const [usuarios, setUsuarios] = useState(null)
-  const [usuariosAEditar, setUsuariosAEditar] = usesState(null)
+  const [usuariosAEditar, setUsuariosAEditar] = useState(null)
 
   useEffect(() => {
     getAllUsuarios()
@@ -31,7 +31,6 @@ const App = () => {
   }
 
   const agregarUsuario = async (nuevoUsuario) => {
-    nuevoUsuario.precio = Number(nuevoUsuario.precio)
     delete nuevoUsuario.id
 
     try {
@@ -59,7 +58,6 @@ const App = () => {
     const urlEditar = import.meta.env.VITE_BACKEND + usuarioEditado.id
 
     try {
-      usuarioEditado.precio = Number(usuarioEditado.precio)
 
       const res = await fetch(urlEditar, {
         method: 'PUT',
@@ -74,7 +72,7 @@ const App = () => {
       const usuarioEditadoBackend = await res.json()
       console.log(usuarioEditadoBackend);
 
-      const nuevoEstadoUsuarios = productos.map(prod => prod.id === usuarioEditadoBackend.id ? usuarioEditado : prod)
+      const nuevoEstadoUsuarios = usuarios.map(prod => prod.id === usuarioEditadoBackend.id ? usuarioEditado : prod)
 
       setUsuarios(nuevoEstadoUsuarios)
     } catch (error) {
