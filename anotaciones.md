@@ -7,5 +7,5 @@ Luego, se tuvo en cuenta de que ya no se trata de productos sino de informacion 
 ## Datos del alumno
 
 Nombre: Fariña Núñez Ian Franco
-GitHub: https://github.com/ianfranfn/desafio-15-ian.git
+GitHub: https://github.com/ianfranfn/desafio-16-Ian.git
 Netlify: https://desafio-15-ian.netlify.app/
