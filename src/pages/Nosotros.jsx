@@ -1,4 +1,4 @@
-import useTitulo from "../hooks/UseTitulo"
+import useTitulo from "../hooks/useTitulo.jsx"
 
 const Nosotros = () => {
 

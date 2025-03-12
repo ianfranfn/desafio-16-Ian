@@ -1,5 +1,5 @@
-import useTitulo from "../hooks/UseTitulo"
-import App from '../App'
+import App from '../App.jsx'
+import useTitulo from '../hooks/useTitulo.jsx'
 
 const Usuarios = () => {
 

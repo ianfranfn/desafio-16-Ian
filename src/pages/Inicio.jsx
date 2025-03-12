@@ -1,9 +1,9 @@
-import React from 'react'
-import useTitulo from '../hooks/useTitulo'
+import useTitulo from '../hooks/useTitulo.jsx'
 
 const Inicio = () => {
 
-    useTitulo('Inicio')
+  useTitulo('Inicio')
+
   return (
     <div>Inicio</div>
   )

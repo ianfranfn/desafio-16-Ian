@@ -1,4 +1,4 @@
-import useTitulo from '../hooks/useTitulo';
+import useTitulo from '../hooks/useTitulo.jsx'
 
 const Contacto = () => {
     useTitulo('Contacto');
