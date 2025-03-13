@@ -8,4 +8,4 @@ Luego, se tuvo en cuenta de que ya no se trata de productos sino de informacion 
 
 Nombre: Fariña Núñez Ian Franco
 GitHub: https://github.com/ianfranfn/desafio-16-Ian.git
-Netlify: https://desafio-15-ian.netlify.app/
+Netlify: https://desafio-16-ianfn.netlify.app/
